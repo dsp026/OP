@@ -1,0 +1,27 @@
+MENU BASED MATH CALCULATOR
+
+PROGRAM:
+
+echo “ Menu Based Calculator”
+echo "Enter the Operands"
+read a
+read b
+echo "Enter the Operator"
+read o
+case $o in
+"+" ) echo “$a + $b” = `expr $a + $b`;;
+"-" ) echo “$a + $b” =  `expr $a - $b`;;
+"*" ) echo “$a + $b” =   `expr $a * $b`;;
+"/" ) echo  “$a + $b” =  `expr $a / $b`;;
+* ) echo " Inavlid Operation"
+esac
+
+OUTPUT:
+
+Menu Based Calculator 
+Enter the Operands
+4
+6
+Enter the Operator
++
+4  +  6  =  10

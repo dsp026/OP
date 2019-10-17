@@ -1,0 +1,67 @@
+PROGRAM
+
+#include<stdio.h>
+#include<conio.h>
+void main()
+{
+int f3[20],f2[20],r[20],r1[20],ms,bod,sb[20],nsb[20],nsb1[20],np,sp[20];
+int f[20],i,j,l,k,z[20],s=0;
+clrscr();
+printf("enter the memory size:");
+scanf("%d",&ms);
+printf("\n enter the number of block of division of memory:");
+scanf("%d",&bod);
+printf("enter the size of each block:");
+for(i=1;i<=bod;i++)
+{
+printf("\nBlock[%d]:",i);
+scanf("%d",&sb[i]);
+f[i]=1;
+z[i]=sb[i];
+}
+printf("\nenter the number of process:");
+scanf("%d",&np);
+printf("\nenter the size of each process:");
+for(i=1;i<=np;i++)
+{
+printf("\nprocess[%d]:",i);
+scanf("%d",&sp[i]);
+}
+printf("\n  FIRST FIT  ");
+printf("\n *********  ");
+for(i=1;i<=np;i++)
+{
+for(j=1;j<=bod;j++)
+{
+if((sb[j]>=sb[i]) && (f[j]!=0))
+{
+printf("\n Process p[%d] is allocated to Block[%d]",i,j);
+f[j]=0;
+z[j]=sb[j]-sp[i];
+s++;
+goto l1;
+}
+}
+printf("\n process p[%d] cannot be allocated",i);
+l1:
+printf(" ");
+}
+printf("\n\n Remaining space left in each block \n");
+printf("\n     ********************************** \n");
+for(i=1;i<=bod;i++)
+{
+printf("\n Block[%d]: free space =%d",i,z[i]);
+}
+printf("\n\nUnallocated Blocks");
+printf(" \n ******************");
+for(i=1;i<=bod;i++)
+{
+if(f[i]!=0)
+{
+printf("\n Block [%d] unallocated",i);
+}
+}
+if(s==bod)
+printf("\n No Block is left unallocated");
+getch();
+}

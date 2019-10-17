@@ -1,7 +1,6 @@
-FIRST COME FIRST SERVE SCHEDULING
+SHORT JOB FIRST SCHEDULING
 
 PROGRAM
-
 #include<stdio.h>
 #include<conio.h>
 void main()
@@ -17,6 +16,18 @@ for(i=0;i<nop;i++)
 {
 printf("Enter the burst time for process %d: ", i);
 scanf("%d",&bt[i]);
+}
+for(i=0;i<nop;i++)
+{
+for(j=i+1;j<nop;j++)
+{
+if(bt[i]>=bt[j])
+{
+t=bt[i];
+bt[i]=bt[j];
+bt[j]=t;
+}
+}
 }
 wt[0]=0;
 tat[0]=bt[0];
@@ -35,7 +46,9 @@ printf("\nProcessid\tBurstTime\tWaitingTime\tTurnaroundTime\n");
 for(i=0;i<nop;i++)
 printf("%d\t\t%d\t\t%d\t\t%d\n",i,bt[i],wt[i],tat[i]);
 printf("\nTotal Waiting Time:%d\n",twt);
+7 | P a g e
 printf("\nTotal Around Time:%d\n",ttat);
 printf("\nAverage Waiting Time:%f\n",awt);
 printf("\nAverage Total Around Time:%f\n",atat);
 getch();
+}
